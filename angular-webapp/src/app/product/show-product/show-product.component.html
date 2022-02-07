@@ -1,0 +1,50 @@
+<br/>
+<br/>
+
+<div class="row">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="card" style="width: 18rem;" *ngFor="let item of productList$|async" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="productInfo(item.id)">
+            <img src={{item.images}} class="card-img-top" alt="image">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{item.productName}}</h5>
+              <p class="card-text">รายละเอียด : {{item.productDetail}}</p>
+              <p class="card-text">ราคา : {{item.price}}.00 บาท</p>
+            </div>
+          </div>
+    </div>
+</div>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">รายละเอียดสินค้า</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row text-center">
+                <img src={{currentContactInfo.images}} class="card-img-top" alt="image">
+            </div>
+            <br>
+            <div>
+                ชื่อสินค้า : {{currentContactInfo.productName}}
+            </div>
+            <br>
+           <div>
+            รายละเอียดสินค้า : {{currentContactInfo.productDetail}}
+           </div>
+           <br>
+           <div>
+            ราคา : {{currentContactInfo.price}}.00 บาท
+           </div>
+            
+            
+            <button type="button" class="btn btn-success float-end" data-bs-dismiss="modal">ซื้อสินค้า</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
